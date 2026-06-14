@@ -3,8 +3,11 @@ bare-metal UART command line for TM4C123GXL
 ## features
 
 -UART0 initialization from registers
+
 -command parsing with a buffer
+
 -LED and TX functionality
+
 -no TivaWare, completely bare metal
 
 ## built-in commands
@@ -24,7 +27,7 @@ bare-metal UART command line for TM4C123GXL
 
 -PuTTY or any application capable of handling serial data
 
--any cortex m development environment, i used code composer studio
+-any cortex-m development environment, i used code composer studio
 
 ### specifications
 -baud rate is 115200 & 8N1
