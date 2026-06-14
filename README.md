@@ -17,9 +17,12 @@ bare-metal UART command line for TM4C123GXL
 
 ## requirements & setup
 ### hardware
+
 -TM4C123GXL
 ### applications
+
 -PuTTY or any application capable of handling serial data
 -any cortex-m development environment, i used code composer studio
 
-baud rate is 115200 & 8N1
+### specifications
+-baud rate is 115200 & 8N1
