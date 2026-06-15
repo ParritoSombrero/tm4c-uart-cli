@@ -32,3 +32,8 @@ char uart_getc(void)
 
     return (char)UART0_DR_R;
 }
+
+void uart_putc(char c) {
+    while (UART0_FR_R & (1 << 5));
+    UART0_DR_R = c;
+}

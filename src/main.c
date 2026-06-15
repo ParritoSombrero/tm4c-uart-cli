@@ -12,9 +12,12 @@ void main(void) {
 
     while(1) {
         char c = uart_getc();
+        uart_putc(c);
 
         if (c == '\r') {
+            uart_out("\r\n");
             buffer[index] = '\0';
+            
 
             if (strcmp(buffer, "red") == 0) {
                 redLEDtoggle();
@@ -23,12 +26,14 @@ void main(void) {
             } else if (strcmp(buffer, "green") == 0) {
                 greenLEDtoggle();
             } else if (strcmp(buffer, "send") == 0) {
-                uart_out("Test");
+                uart_out("Test\r\n");
             }
             index = 0;
         } else {
-            buffer[index] = c;
-            index++;
+            if (index < sizeof(buffer) - 1)
+            {
+                buffer[index++] = c;
+            }
         }
     }
 }
