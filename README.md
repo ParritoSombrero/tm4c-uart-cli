@@ -8,7 +8,7 @@ bare-metal UART command line for TM4C123GXL
 
 -LED and TX functionality
 
--custom mini driver library for UART 
+-custom mini driver library for UART and LEDs
 
 -no TivaWare, completely bare metal
 
