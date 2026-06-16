@@ -19,6 +19,7 @@ bare-metal UART command line for TM4C123GXL
 | green   | turns on green LED      |
 | blue    | turns on blue LED       |
 | send    | sends "Test" by default |
+| help    | prints usage            |
 
 ## requirements & setup
 ### hardware
