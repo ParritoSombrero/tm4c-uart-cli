@@ -2,6 +2,7 @@
 #include <string.h>
 #include "gpio.h"
 #include "uart.h"
+#include "commands.h"
 
 void main(void) {
     gpio_init();
@@ -14,24 +15,17 @@ void main(void) {
         char c = uart_getc();
         uart_putc(c);
 
-        if (c == '\r') {
+        if (c == 127) {
+            if (index > 0) {
+                index--; }
+        } else if (c == '\r') {
             uart_out("\r\n");
             buffer[index] = '\0';
-            
-
-            if (strcmp(buffer, "red") == 0) {
-                redLEDtoggle();
-            } else if (strcmp(buffer, "blue") == 0) {
-                blueLEDtoggle();
-            } else if (strcmp(buffer, "green") == 0) {
-                greenLEDtoggle();
-            } else if (strcmp(buffer, "send") == 0) {
-                uart_out("Test\r\n");
-            }
+            handle_command(buffer);
             index = 0;
         } else {
             if (index < sizeof(buffer) - 1)
-            {
+            {   
                 buffer[index++] = c;
             }
         }
