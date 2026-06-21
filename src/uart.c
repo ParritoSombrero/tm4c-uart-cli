@@ -1,10 +1,12 @@
 #include "uart.h"
+#include "systick.h"
 
 void uart_init(void) {
     SYSCTL_RCGCUART_R |= (1 << 0);
 
     volatile int delay;
-    for (delay = 0; delay < 1000; delay++) {}
+    systick_setup();
+    systick_delay(15);
 
     UART0_CTL_R &= ~(1 << 0);
 
